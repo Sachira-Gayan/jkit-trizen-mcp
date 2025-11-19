@@ -7,7 +7,7 @@ REDIRECT_URI = "http://localhost:8000/mcp"
 
 
 CLIENT_ID = "029a88ac-a2a7-48dc-999a-e48cee57866d"
-CLIENT_SS= "zNp8Q~dMQ5cvIFdiMLHn2ojDZAJaTLPt1~qqwaf2"
+CLIENT_SECRET = "zNp8Q~dMQ5cvIFdiMLHn2ojDZAJaTLPt1~qqwaf2"
 TENANT_ID = "f6bf0d68-8c3c-4a25-a5d8-661cec987ce2"
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 SCOPE = ["https://graph.microsoft.com/.default"]  # or your API scope
@@ -19,7 +19,7 @@ def get_accessToken():
 
     app = ConfidentialClientApplication(
     client_id=CLIENT_ID,
-    client_credential=CLIENT_SS,
+    client_credential=CLIENT_SECRET,
     authority=AUTHORITY
     )
 

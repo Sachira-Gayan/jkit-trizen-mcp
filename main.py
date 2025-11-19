@@ -77,4 +77,4 @@ async def http_request(
 
 
 if __name__ == "__main__":
-    app.run(transport="http",host="localhost",port=8000)
+    app.run()
