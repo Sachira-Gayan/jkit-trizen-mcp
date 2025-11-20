@@ -1,14 +1,10 @@
 from msal import ConfidentialClientApplication
 
 
-TENANT_ID = "704e1a5a-f6a7-4fae-be42-e1a81a3412e7"
+
 CLIENT_ID = "f659c2ba-4303-48be-bc57-8a6427b6f237"
-REDIRECT_URI = "http://localhost:8000/mcp"
-
-
-CLIENT_ID = "029a88ac-a2a7-48dc-999a-e48cee57866d"
-CLIENT_SECRET = "zNp8Q~dMQ5cvIFdiMLHn2ojDZAJaTLPt1~qqwaf2"
-TENANT_ID = "f6bf0d68-8c3c-4a25-a5d8-661cec987ce2"
+CLIENT_SECRET = "7Vi8Q~x.z7GBT.Yt5rGQS4LyfqJPaHV6ZyFVTazN"
+TENANT_ID = "704e1a5a-f6a7-4fae-be42-e1a81a3412e7"
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 SCOPE = ["https://graph.microsoft.com/.default"]  # or your API scope
 
@@ -34,3 +30,5 @@ def get_accessToken():
     
     else:
         return("Error acquiring token:", result.get("error_description"))
+    
+    
