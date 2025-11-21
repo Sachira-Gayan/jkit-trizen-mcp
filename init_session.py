@@ -33,3 +33,4 @@ def initialize_session():
         print(session_id)
         return session_id
     
+

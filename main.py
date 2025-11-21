@@ -7,9 +7,10 @@ import threading
 import time
 import requests
 from config import header
+import os
 
 HOST = "0.0.0.0"
-PORT = 8080
+PORT = int(os.getenv("PORT", 8080))
 
 # Simple in-memory session store: session_id -> metadata
 _sessions = {}
