@@ -1,7 +1,6 @@
 from fastmcp import FastMCP
 import httpx
 from config import header
-import uvicorn
 app = FastMCP("my-azure-mcp",stateless_http=True)
 
 
@@ -62,4 +61,4 @@ async def http_request(
 
 
 if __name__ == "__main__":
-    uvicorn.run(app,host="0.0.0.0", port=8000)
+    app.run(transport="http",host="0.0.0.0", port=8000)
