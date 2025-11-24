@@ -1,8 +1,7 @@
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 import httpx
-import os
 from config import header
-app = FastMCP("azure-mcp-server",stateless_http=True)
+app = FastMCP("azure-mcp-server",stateless_http=True,auth=None,host="0.0.0.0")
 
 
 
@@ -62,5 +61,4 @@ async def http_request(
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    app.run(transport="http",host="0.0.0.0", port=port)
+    app.run(transport="streamable-http")
