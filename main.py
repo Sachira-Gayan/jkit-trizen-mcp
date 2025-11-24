@@ -1,37 +1,19 @@
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 import httpx
 from config import header
-app = FastMCP("azure-mcp-server",stateless_http=True,auth=None,host="0.0.0.0")
+app = FastMCP("azure-mcp-server",stateless_http=True)
 
 
-
-
-# ------------------------------
-# HTTP GET Tool
-# ------------------------------
 @app.tool()
-async def http_get(url: str) -> dict:
-    """
-    Perform an HTTP GET request and return the response text.
-    """
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url)
-        # response.raise_for_status()
-        return response.json()
-
-
-# ------------------------------
-# HTTP POST Tool
-# ------------------------------
-@app.tool()
-async def http_post(url: str, data: dict) -> dict:
+async def trizen_smarthome(url: str, data: dict) -> dict:
     """
     Perform an HTTP POST request with JSON body.
     """
     async with httpx.AsyncClient() as client:
         response = await client.post(url, json=data,headers=header)
         response.raise_for_status()
-        return response.json()
+        data = response.json()
+        return data
 
 
 # ------------------------------
@@ -61,4 +43,4 @@ async def http_request(
 
 
 if __name__ == "__main__":
-    app.run(transport="streamable-http")
+    app.run(transport="http",host="0.0.0.0")
